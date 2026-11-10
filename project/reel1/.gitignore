@@ -1,0 +1,6 @@
+src.mov
+voice16.wav
+tmp/
+fonts/
+out/*.jpg
+__pycache__/
