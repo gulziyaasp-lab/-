@@ -24,11 +24,16 @@
     font-weight:800;font-size:54px;padding:26px 46px;border-radius:36px;white-space:nowrap;box-shadow:0 14px 40px rgba(0,0,0,.35)}
   .hook b{color:var(--orange);font-weight:900}
   .safe{position:absolute;bottom:100px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-weight:500;font-size:34px;letter-spacing:2px}
+  .bokeh i{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,220,150,.75) 0%,rgba(255,200,120,.35) 55%,rgba(255,200,120,0) 72%);filter:blur(2px)}
+  .glare{position:absolute;inset:0;background:radial-gradient(ellipse 60% 35% at 70% 30%,rgba(255,210,150,.28),transparent 70%);mix-blend-mode:screen}
+  .grain{position:absolute;inset:0;opacity:.13;mix-blend-mode:overlay}
+  .vignette{position:absolute;inset:0;box-shadow:inset 0 0 260px 60px rgba(0,0,0,.65)}
+  .title .big,.partners{text-shadow:0 6px 30px rgba(0,0,0,.6)}
 </style></head>
 <body>
 <div class="scene">
   <!-- Иллюстрация лаунжа: панорамное окно, самолёт у гейта на закате, кресло, столик с бокалом -->
-  <svg width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;inset:0" id="illu">
+  <svg width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;inset:0;filter:blur(9px) saturate(1.15)" id="illu">
     <defs>
       <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0" stop-color="#0D234A"/><stop offset=".45" stop-color="#1E5FA8"/>
@@ -66,7 +71,8 @@
       <rect x="110" y="178" width="8" height="70" fill="#333"/><circle cx="114" cy="252" r="12" fill="#222"/>
       <rect x="440" y="178" width="10" height="70" fill="#333"/><circle cx="436" cy="252" r="14" fill="#222"/><circle cx="460" cy="252" r="14" fill="#222"/>
     </g>
-    <!-- рама панорамного окна -->
+    </g></svg>
+  <svg width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;inset:0;filter:blur(2px) saturate(1.1)" id="illu2"><g transform="translate(0 -330)"><!-- рама панорамного окна -->
     <g fill="#14110F">
       
       <rect x="348" y="0" width="10" height="1300"/><rect x="714" y="0" width="10" height="1300"/>
@@ -108,10 +114,17 @@
   </svg>
   <div class="photo" id="photo"></div>
   <div class="shade"></div>
+  <div class="bokeh">
+    <i style="left:120px;top:180px;width:90px;height:90px"></i><i style="left:520px;top:120px;width:60px;height:60px"></i>
+    <i style="left:880px;top:220px;width:110px;height:110px"></i><i style="left:300px;top:420px;width:50px;height:50px;opacity:.35"></i>
+    <i style="left:960px;top:520px;width:70px;height:70px;opacity:.4"></i><i style="left:60px;top:600px;width:80px;height:80px;opacity:.3"></i>
+  </div>
+  <div class="glare"></div>
+  <svg class="grain" width="1080" height="1920"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+  <div class="vignette"></div>
 </div>
 
 <div class="partners">AIR ASTANA <span class="x">×</span> ELTOUR</div>
-<div class="rubric">ЛАЙФХАК ОТ АВИААГЕНТА</div>
 <div class="title">
   <div class="small">ВНУТРИ</div>
   <div class="big">БИЗНЕС-<br><span>ЛАУНЖ</span></div>
@@ -122,6 +135,6 @@
 <script>
   // ?photo=путь — подставить реальное фото лаунжа вместо иллюстрации
   const p = new URLSearchParams(location.search).get('photo');
-  if (p) { document.getElementById('photo').style.backgroundImage = `url("${p}")`; document.getElementById('illu').style.display='none'; }
+  if (p) { document.getElementById('photo').style.backgroundImage = `url("${p}")`; document.getElementById('illu').style.display='none';document.getElementById('illu2').style.display='none'; }
 </script>
 </body></html>
