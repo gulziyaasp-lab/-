@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<style>
+  @font-face{font-family:Inter;src:url(file:///usr/share/fonts/opentype/inter/Inter-Black.otf);font-weight:900}
+  @font-face{font-family:Inter;src:url(file:///usr/share/fonts/opentype/inter/Inter-ExtraBold.otf);font-weight:800}
+  @font-face{font-family:Inter;src:url(file:///usr/share/fonts/opentype/inter/Inter-Bold.otf);font-weight:700}
+  @font-face{font-family:Inter;src:url(file:///usr/share/fonts/opentype/inter/Inter-Medium.otf);font-weight:500}
+  :root{--blue:#1E88E5;--navy:#0D234A;--sky:#7DC8FF;--orange:#FFAA1E;--gold:#E6C27A;--white:#fff}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1920px;overflow:hidden;background:var(--navy);font-family:Inter,sans-serif}
+  .scene{position:absolute;inset:0}
+  .photo{position:absolute;inset:0;background-size:cover;background-position:center}
+  .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,35,74,.85) 0%,rgba(13,35,74,.15) 30%,rgba(13,35,74,0) 50%,rgba(13,35,74,.9) 74%,#0D234A 100%)}
+  .partners{position:absolute;top:110px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:28px;
+    color:#fff;font-weight:800;font-size:46px;letter-spacing:4px}
+  .partners .x{color:var(--orange);font-weight:500;font-size:44px}
+  .rubric{position:absolute;top:200px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--navy);
+    font-weight:800;font-size:36px;padding:14px 34px;border-radius:40px;white-space:nowrap;letter-spacing:1px}
+  .title{position:absolute;left:0;right:0;bottom:370px;text-align:center;color:#fff}
+  .title .small{font-weight:800;font-size:64px;letter-spacing:6px;color:var(--sky)}
+  .title .big{font-weight:900;font-size:168px;line-height:.95;letter-spacing:-2px;text-shadow:0 10px 40px rgba(0,0,0,.45)}
+  .title .big span{color:var(--orange)}
+  .hook{position:absolute;left:50%;bottom:200px;transform:translateX(-50%);background:var(--blue);color:#fff;
+    font-weight:800;font-size:54px;padding:26px 46px;border-radius:36px;white-space:nowrap;box-shadow:0 14px 40px rgba(0,0,0,.35)}
+  .hook b{color:var(--orange);font-weight:900}
+  .safe{position:absolute;bottom:100px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-weight:500;font-size:34px;letter-spacing:2px}
+</style></head>
+<body>
+<div class="scene">
+  <!-- Иллюстрация лаунжа: панорамное окно, самолёт у гейта на закате, кресло, столик с бокалом -->
+  <svg width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;inset:0" id="illu">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0D234A"/><stop offset=".45" stop-color="#1E5FA8"/>
+        <stop offset=".72" stop-color="#F29B54"/><stop offset=".85" stop-color="#FFC877"/>
+      </linearGradient>
+      <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF4D6"/><stop offset=".4" stop-color="#FFD58A"/><stop offset="1" stop-color="#FFAA1E" stop-opacity="0"/></radialGradient>
+      <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2622"/><stop offset="1" stop-color="#0E0C0B"/></linearGradient>
+      <linearGradient id="leather" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8A5A3A"/><stop offset="1" stop-color="#3D2416"/></linearGradient>
+      <linearGradient id="fuse" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F7FB"/><stop offset="1" stop-color="#B9C6D6"/></linearGradient>
+      <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    </defs>
+    <!-- небо в окне -->
+    <g transform="translate(0 -330)"><rect width="1080" height="1300" fill="url(#sky)"/>
+    <circle cx="760" cy="930" r="260" fill="url(#sun)"/>
+    <!-- горы на горизонте -->
+    <path d="M0 1010 L140 930 L260 985 L400 900 L560 990 L700 940 L860 1000 L1000 950 L1080 980 L1080 1080 L0 1080Z" fill="#3B3F6B" opacity=".75"/>
+    <!-- перрон -->
+    <rect y="1060" width="1080" height="240" fill="#4A4E63"/>
+    <path d="M0 1180 L1080 1140" stroke="#FFD24A" stroke-width="6" opacity=".7"/>
+    <!-- самолёт (силуэт, без ливреи) -->
+    <g transform="translate(70 900)">
+      <path d="M40 150 Q20 150 30 130 L120 125 L700 115 Q790 112 830 140 Q840 160 800 172 L120 180 Q60 180 40 150Z" fill="url(#fuse)"/>
+      <path d="M690 118 L760 10 L800 10 L780 120Z" fill="#C9A86A"/>
+      <path d="M330 160 L560 250 L610 250 L470 150Z" fill="#AEB9C8"/>
+      <ellipse cx="470" cy="215" rx="55" ry="22" fill="#8D99AA"/>
+      <g fill="#1B2B45">
+        <rect x="70" y="132" width="26" height="16" rx="4"/>
+        <rect x="140" y="132" width="10" height="12" rx="3"/><rect x="165" y="132" width="10" height="12" rx="3"/><rect x="190" y="132" width="10" height="12" rx="3"/>
+        <rect x="215" y="131" width="10" height="12" rx="3"/><rect x="240" y="131" width="10" height="12" rx="3"/><rect x="265" y="131" width="10" height="12" rx="3"/>
+        <rect x="290" y="130" width="10" height="12" rx="3"/><rect x="315" y="130" width="10" height="12" rx="3"/><rect x="340" y="130" width="10" height="12" rx="3"/>
+        <rect x="365" y="129" width="10" height="12" rx="3"/><rect x="390" y="129" width="10" height="12" rx="3"/><rect x="415" y="129" width="10" height="12" rx="3"/>
+        <rect x="540" y="127" width="10" height="12" rx="3"/><rect x="565" y="127" width="10" height="12" rx="3"/><rect x="590" y="126" width="10" height="12" rx="3"/>
+        <rect x="615" y="126" width="10" height="12" rx="3"/><rect x="640" y="126" width="10" height="12" rx="3"/>
+      </g>
+      <rect x="110" y="178" width="8" height="70" fill="#333"/><circle cx="114" cy="252" r="12" fill="#222"/>
+      <rect x="440" y="178" width="10" height="70" fill="#333"/><circle cx="436" cy="252" r="14" fill="#222"/><circle cx="460" cy="252" r="14" fill="#222"/>
+    </g>
+    <!-- рама панорамного окна -->
+    <g fill="#14110F">
+      
+      <rect x="348" y="0" width="10" height="1300"/><rect x="714" y="0" width="10" height="1300"/>
+      <rect x="0" y="1290" width="1080" height="20"/>
+    </g>
+    <rect width="1080" height="1300" fill="url(#glass)"/>
+    <!-- пол лаунжа -->
+    <rect y="1300" width="1080" height="950" fill="url(#floor)"/>
+    <ellipse cx="540" cy="1320" rx="560" ry="30" fill="#FFC877" opacity=".18"/>
+    <!-- кресло -->
+    <g transform="translate(600 1180)">
+      <ellipse cx="190" cy="350" rx="230" ry="26" fill="#000" opacity=".5"/>
+      <path d="M40 40 Q40 0 90 0 L300 0 Q350 0 350 40 L350 230 L40 230Z" fill="url(#leather)"/>
+      <path d="M0 160 Q0 120 40 120 L80 120 L80 330 L0 330Z" fill="#5A3826"/>
+      <path d="M310 120 L350 120 Q390 120 390 160 L390 330 L310 330Z" fill="#5A3826"/>
+      <rect x="60" y="220" width="270" height="90" rx="22" fill="#7A4D31"/>
+      <path d="M90 30 L90 200 M195 30 L195 200 M300 30 L300 200" stroke="#2E1A10" stroke-width="3" opacity=".5"/>
+    </g>
+    <!-- столик, бокал и кофе -->
+    <g transform="translate(250 1360)">
+      <ellipse cx="130" cy="20" rx="150" ry="30" fill="#C9A86A"/>
+      <ellipse cx="130" cy="14" rx="150" ry="30" fill="#E6C27A"/>
+      <rect x="122" y="30" width="16" height="200" fill="#8C6E3C"/>
+      <ellipse cx="130" cy="235" rx="80" ry="14" fill="#5E4A28"/>
+      <!-- бокал -->
+      <path d="M70 -110 L120 -110 Q118 -50 95 -45 Q72 -50 70 -110Z" fill="#FFE7A8" opacity=".85"/>
+      <path d="M68 -150 L122 -150 L120 -110 L70 -110Z" fill="#fff" opacity=".25"/>
+      <rect x="93" y="-45" width="4" height="50" fill="#fff" opacity=".7"/><ellipse cx="95" cy="8" rx="22" ry="5" fill="#fff" opacity=".7"/>
+      <!-- чашка -->
+      <ellipse cx="190" cy="6" rx="42" ry="9" fill="#fff"/>
+      <path d="M160 -40 L220 -40 L214 0 Q190 10 166 0Z" fill="#fff"/>
+      <path d="M220 -32 Q246 -28 236 -10 Q230 -2 216 -6" stroke="#fff" stroke-width="7" fill="none"/>
+      <ellipse cx="190" cy="-40" rx="30" ry="6" fill="#6B3E1F"/>
+    </g>
+    </g><!-- тёплые светильники -->
+    <g fill="#FFD58A">
+      
+    </g>
+  </svg>
+  <div class="photo" id="photo"></div>
+  <div class="shade"></div>
+</div>
+
+<div class="partners">AIR ASTANA <span class="x">×</span> ELTOUR</div>
+<div class="rubric">ЛАЙФХАК ОТ АВИААГЕНТА</div>
+<div class="title">
+  <div class="small">ВНУТРИ</div>
+  <div class="big">БИЗНЕС-<br><span>ЛАУНЖ</span></div>
+</div>
+<div class="hook">Как попасть и что <b>бесплатно</b>?</div>
+<div class="safe">смотри до конца ✈</div>
+
+<script>
+  // ?photo=путь — подставить реальное фото лаунжа вместо иллюстрации
+  const p = new URLSearchParams(location.search).get('photo');
+  if (p) { document.getElementById('photo').style.backgroundImage = `url("${p}")`; document.getElementById('illu').style.display='none'; }
+</script>
+</body></html>
